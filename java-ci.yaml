@@ -53,4 +53,7 @@ prod:
     - main
     - master
   stage: prod
-  trigger: my-pay2-org/backend-release-flow/prod-release.yaml
+  trigger:
+    include:
+      - project: 'my-pay2-org/backend-release-flow'
+        file: 'prod-release.yaml'
