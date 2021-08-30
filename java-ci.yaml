@@ -49,7 +49,7 @@ prod:
   variables:
     MY_ENV_VAR: my-env-val
   only:
-    - v*
+    - /^v\d+\.\d+\.\d+$/i
     - main
     - master
   stage: prod
