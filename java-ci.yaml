@@ -51,4 +51,4 @@ prod:
     - main
     - master
   stage: prod
-  trigger: my-pay2-org/backend-release-flow
+  trigger: backend-release-flow/prod-release.yaml
