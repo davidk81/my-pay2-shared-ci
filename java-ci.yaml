@@ -58,4 +58,3 @@ prod:
     - master
   stage: prod
   trigger: my-pay2-org/backend-release-flow
-  strategy: depend
