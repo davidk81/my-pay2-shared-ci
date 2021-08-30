@@ -16,15 +16,11 @@ build-job:
 
 test-job1:
   stage: test
-  needs:
-    - build-job
   script:
     - echo "This job tests something"
 
 test-job2:
   stage: test
-  needs:
-    - build-job
   script:
     - echo "This job tests something, but takes more time than test-job1."
     - echo "After the echo commands complete, it runs the sleep command for 20 seconds"
@@ -33,21 +29,16 @@ test-job2:
     
 deploy-dev:
   stage: dev
-  needs:
-    - build-job
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
 
 deploy-stg:
   stage: stg
-  needs:
-    - build-job
+  when: manual
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
 
 qa-stg:
   stage: integration-test
-  needs:
-    - deploy-stg
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
